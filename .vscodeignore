@@ -1,0 +1,10 @@
+.vscode/**
+.vscode-test/**
+src/**
+.gitignore
+tsconfig.json
+**/tsconfig.json
+**/*.map
+**/*.ts
+reference-2026-robot/**
+node_modules/**

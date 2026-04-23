@@ -1,0 +1,46 @@
+{
+  "name": "frc-forge",
+  "displayName": "FRC Forge",
+  "description": "Template-driven generator for WPILib 2026 Java robot code. Swerve, tank, mechanisms, LEDs, vision, PathPlanner — dropped straight into src/main/java/frc/robot/.",
+  "version": "0.1.0",
+  "publisher": "frc-forge",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Snippets"
+  ],
+  "keywords": [
+    "frc",
+    "wpilib",
+    "swerve",
+    "pathplanner",
+    "first robotics"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "frcForge.open",           "title": "FRC Forge: Open",                "category": "FRC Forge" },
+      { "command": "frcForge.newSwerve",      "title": "FRC Forge: New Swerve",          "category": "FRC Forge" },
+      { "command": "frcForge.newTank",        "title": "FRC Forge: New Tank",            "category": "FRC Forge" },
+      { "command": "frcForge.newMechanism",   "title": "FRC Forge: New Mechanism",       "category": "FRC Forge" },
+      { "command": "frcForge.newLeds",        "title": "FRC Forge: New LEDs",            "category": "FRC Forge" },
+      { "command": "frcForge.newVision",      "title": "FRC Forge: New Vision",          "category": "FRC Forge" },
+      { "command": "frcForge.newPathPlanner", "title": "FRC Forge: New PathPlanner",     "category": "FRC Forge" }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.3",
+    "@vscode/vsce": "^2.24.0"
+  }
+}
