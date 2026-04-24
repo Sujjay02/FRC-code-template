@@ -4,6 +4,11 @@
   "description": "Template-driven generator for WPILib 2026 Java robot code. Swerve, tank, mechanisms, LEDs, vision, PathPlanner — dropped straight into src/main/java/frc/robot/.",
   "version": "0.1.0",
   "publisher": "frc-forge",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sujjay02/FRC-code-template"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
