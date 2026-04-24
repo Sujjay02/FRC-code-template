@@ -23,17 +23,46 @@
     "pathplanner",
     "first robotics"
   ],
+  "extensionDependencies": [
+    "vscode.microsoft-authentication"
+  ],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "frcForge",
+          "title": "FRC Forge",
+          "icon": "media/frc-forge.svg"
+        }
+      ]
+    },
+    "views": {
+      "frcForge": [
+        {
+          "type": "webview",
+          "id": "frcForge.panel",
+          "name": "FRC Forge",
+          "icon": "media/frc-forge.svg"
+        }
+      ]
+    },
     "commands": [
-      { "command": "frcForge.open",           "title": "FRC Forge: Open",                "category": "FRC Forge" },
-      { "command": "frcForge.newSwerve",      "title": "FRC Forge: New Swerve",          "category": "FRC Forge" },
-      { "command": "frcForge.newTank",        "title": "FRC Forge: New Tank",            "category": "FRC Forge" },
-      { "command": "frcForge.newMechanism",   "title": "FRC Forge: New Mechanism",       "category": "FRC Forge" },
-      { "command": "frcForge.newLeds",        "title": "FRC Forge: New LEDs",            "category": "FRC Forge" },
-      { "command": "frcForge.newVision",      "title": "FRC Forge: New Vision",          "category": "FRC Forge" },
-      { "command": "frcForge.newPathPlanner", "title": "FRC Forge: New PathPlanner",     "category": "FRC Forge" }
+      { "command": "frcForge.open",             "title": "FRC Forge: Open",                 "category": "FRC Forge" },
+      { "command": "frcForge.newSwerve",        "title": "FRC Forge: New Swerve Drive",     "category": "FRC Forge" },
+      { "command": "frcForge.newTank",          "title": "FRC Forge: New Tank Drive",       "category": "FRC Forge" },
+      { "command": "frcForge.newShooter",       "title": "FRC Forge: New Shooter",          "category": "FRC Forge" },
+      { "command": "frcForge.newShooterHopper", "title": "FRC Forge: New Shooter + Hopper","category": "FRC Forge" },
+      { "command": "frcForge.newIntake",        "title": "FRC Forge: New Intake",           "category": "FRC Forge" },
+      { "command": "frcForge.newElevator",      "title": "FRC Forge: New Elevator",         "category": "FRC Forge" },
+      { "command": "frcForge.newClimb",         "title": "FRC Forge: New Climb",            "category": "FRC Forge" },
+      { "command": "frcForge.newMechanism",     "title": "FRC Forge: New Generic Mechanism","category": "FRC Forge" },
+      { "command": "frcForge.newLeds",          "title": "FRC Forge: New Addressable LEDs", "category": "FRC Forge" },
+      { "command": "frcForge.newVision",        "title": "FRC Forge: New Vision",           "category": "FRC Forge" },
+      { "command": "frcForge.newPathPlanner",   "title": "FRC Forge: New PathPlanner Autos","category": "FRC Forge" },
+      { "command": "frcForge.combine",          "title": "FRC Forge: Combine Templates",    "category": "FRC Forge" },
+      { "command": "frcForge.signInAzure",      "title": "FRC Forge: Sign in to Azure",     "category": "FRC Forge" }
     ]
   },
   "scripts": {
