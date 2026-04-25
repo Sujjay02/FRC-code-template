@@ -1,39 +1,50 @@
-# FRC Forge
+# FRC Jumpstart
 
-A VS Code extension that generates production-ready WPILib 2026 Java robot code from a curated template database — drops files straight into `src/main/java/frc/robot/`.
+A VS Code extension that generates production-ready WPILib 2026 Java robot code from a curated template library — drops files straight into `src/main/java/frc/robot/`.
 
 ## Template families
 
-- **Swerve Drive** — 4-module swerve with mix-and-match Phoenix 6 / REVLib motors across SDS MK4 / MK4i / MK4n, REV MAXSwerve, and WCP SwerveX. CANcoder absolute encoders, NavX or Pigeon 2 gyro, pose estimator, and PathPlanner AutoBuilder pre-wired.
-- **Tank Drive** — Leader/follower differential drive for REVLib or Phoenix 6.
-- **Generic Mechanism** — Single or multi-motor arm / elevator / intake / shooter with preset command factory methods auto-generated from a comma-separated list.
-- **Addressable LEDs** — Solid, rainbow, alliance-aware, chase, strobe, progress bar, boolean indicator.
-- **Vision** — Limelight through NetworkTables or PhotonVision with `PhotonPoseEstimator`. Emits an `AlignToTarget` yaw-PID command that preserves driver translation.
-- **PathPlanner Autos** — `AutoBuilder` config, `NamedCommands` registry, alliance flipping, `SendableChooser` auto selection.
+- **Swerve Drive** — REV MAXSwerve (SparkMax) or CTRE (TalonFX + CANcoder), NavX or Pigeon 2 gyro, pose estimator with vision fusion.
+- **Tank Drive** — Leader/follower differential drive for REV or CTRE.
+- **Mecanum Drive** — 4-motor mecanum with field-relative cartesian drive.
+- **Flywheel Shooter** — Dual-motor velocity PID shooter.
+- **Shooter + Hopper** — Shooter with beam-break feeder/indexer.
+- **Turret** — Absolute-encoder position PID rotating base.
+- **Puncher / Kicker** — DoubleSolenoid punch with configurable hold time.
+- **Catapult** — Motor windup + home sensor fire cycle.
+- **Intake (Roller)** — Single roller with beam break auto-stop.
+- **Intake with Deploy Arm** — Pivot arm + roller with deploy/stow commands.
+- **Conveyor / Belt** — Belt transport with piece detection.
+- **Serializer** — Two-zone indexer with independent zone control.
+- **Elevator** — REV SparkMax position PID or CTRE MotionMagic (jerk-limited, gravity feedforward) with L1–L4 presets.
+- **Pivot Arm** — REV SparkMax + absolute encoder or CTRE MotionMagic with cosine gravity compensation.
+- **Double-Jointed Arm** — Independent shoulder + elbow position PIDs with combined presets.
+- **Wrist** — Small rotational end-effector with absolute encoder.
+- **Telescope / Extension** — Linear slide position PID.
+- **Generic Mechanism** — Custom name + comma-separated preset positions auto-generates a full subsystem.
+- **Climb** — Dual-motor winch with extend/retract encoder limits.
+- **Buddy Climb** — Deploy arm for alliance partner assist.
+- **Claw / Gripper** — Roller gripper with piece detection and hold mode.
+- **Pneumatics** — REV PH compressor management + DoubleSolenoid template.
+- **Vision (PhotonVision)** — `PhotonPoseEstimator` with `MULTI_TAG_PNP_ON_COPROCESSOR`, yaw-PID align command.
+- **Vision (Limelight)** — NetworkTables 4 with botpose, pipeline switching, yaw-PID align command.
+- **Addressable LEDs** — Solid, rainbow, breathe, strobe, chase, progress bar, alliance-aware, indicator.
+- **PathPlanner Autos** — `AutoBuilder` config, `NamedCommands` registry, alliance flipping, `SendableChooser`.
+- **Choreo Autos** — `AutoFactory` with PID feed-forward correction, multi-segment auto template.
 
 ## Design
 
-Every line of Java output comes from hand-written TypeScript emitting code through template literals — no LLM-driven generation. Output is deterministic, reviewable, and free of hallucinated APIs. Templates are verified against the 2026 APIs: the REVLib `com.revrobotics.spark` namespace with `SparkMaxConfig` + `configure(config, ResetMode, PersistMode)`, Studica NavX with `NavXComType`, Phoenix 6 with `TalonFXConfiguration`, and current PathPlanner `AutoBuilder` / `PPHolonomicDriveController` patterns.
+Every line of Java output comes from hand-written TypeScript template literals — no LLM generation. Output is deterministic and verified against 2026 APIs: REVLib `com.revrobotics.spark` with `SparkMaxConfig` + `configure(ResetMode, PersistMode)`, CTRE Phoenix 6 `TalonFXConfiguration` + `MotionMagicVoltage`, Studica NavX, and current PathPlanner / ChoreoLib patterns.
 
-## Commands
-
-| Command | Title |
-|---|---|
-| `frcForge.open` | FRC Forge: Open |
-| `frcForge.newSwerve` | FRC Forge: New Swerve |
-| `frcForge.newTank` | FRC Forge: New Tank |
-| `frcForge.newMechanism` | FRC Forge: New Mechanism |
-| `frcForge.newLeds` | FRC Forge: New LEDs |
-| `frcForge.newVision` | FRC Forge: New Vision |
-| `frcForge.newPathPlanner` | FRC Forge: New PathPlanner |
+The panel detects your WPILib project year and language from `.wpilib/wpilib_preferences.json` and displays it at the bottom.
 
 ## Development
 
 ```bash
 npm install
 npm run compile
-# F5 into the extension host to test in a fresh WPILib workspace
-npm run package   # produces frc-forge-<version>.vsix
+# F5 to launch the Extension Development Host in a WPILib workspace
+npm run package   # produces frc-jumpstart-<version>.vsix
 ```
 
-The extension detects WPILib projects by scanning for `build.gradle` plus either `.wpilib/wpilib_preferences.json` or `src/main/java/frc/robot/`. Files are written into the configured Java package, with a modal prompt before any existing file is overwritten.
+Files are written into `src/main/java/frc/robot/subsystems/` with a modal overwrite prompt if the file already exists.

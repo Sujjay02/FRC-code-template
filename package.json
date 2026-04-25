@@ -1,9 +1,9 @@
 {
-  "name": "frc-forge",
-  "displayName": "FRC Forge",
+  "name": "frc-jumpstart",
+  "displayName": "FRC Jumpstart",
   "description": "Template-driven generator for WPILib 2026 Java robot code. Swerve, tank, mechanisms, LEDs, vision, PathPlanner — dropped straight into src/main/java/frc/robot/.",
   "version": "0.1.0",
-  "publisher": "frc-forge",
+  "publisher": "frc-jumpstart",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -23,46 +23,57 @@
     "pathplanner",
     "first robotics"
   ],
-  "extensionDependencies": [
-    "vscode.microsoft-authentication"
-  ],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "frcForge",
-          "title": "FRC Forge",
-          "icon": "media/frc-forge.svg"
+          "id": "frcJumpstart",
+          "title": "FRC Jumpstart",
+          "icon": "media/frc-jumpstart.svg"
         }
       ]
     },
     "views": {
-      "frcForge": [
+      "frcJumpstart": [
         {
           "type": "webview",
-          "id": "frcForge.panel",
-          "name": "FRC Forge",
-          "icon": "media/frc-forge.svg"
+          "id": "frcJumpstart.panel",
+          "name": "FRC Jumpstart",
+          "icon": "media/frc-jumpstart.svg"
         }
       ]
     },
     "commands": [
-      { "command": "frcForge.open",             "title": "FRC Forge: Open",                 "category": "FRC Forge" },
-      { "command": "frcForge.newSwerve",        "title": "FRC Forge: New Swerve Drive",     "category": "FRC Forge" },
-      { "command": "frcForge.newTank",          "title": "FRC Forge: New Tank Drive",       "category": "FRC Forge" },
-      { "command": "frcForge.newShooter",       "title": "FRC Forge: New Shooter",          "category": "FRC Forge" },
-      { "command": "frcForge.newShooterHopper", "title": "FRC Forge: New Shooter + Hopper","category": "FRC Forge" },
-      { "command": "frcForge.newIntake",        "title": "FRC Forge: New Intake",           "category": "FRC Forge" },
-      { "command": "frcForge.newElevator",      "title": "FRC Forge: New Elevator",         "category": "FRC Forge" },
-      { "command": "frcForge.newClimb",         "title": "FRC Forge: New Climb",            "category": "FRC Forge" },
-      { "command": "frcForge.newMechanism",     "title": "FRC Forge: New Generic Mechanism","category": "FRC Forge" },
-      { "command": "frcForge.newLeds",          "title": "FRC Forge: New Addressable LEDs", "category": "FRC Forge" },
-      { "command": "frcForge.newVision",        "title": "FRC Forge: New Vision",           "category": "FRC Forge" },
-      { "command": "frcForge.newPathPlanner",   "title": "FRC Forge: New PathPlanner Autos","category": "FRC Forge" },
-      { "command": "frcForge.combine",          "title": "FRC Forge: Combine Templates",    "category": "FRC Forge" },
-      { "command": "frcForge.signInAzure",      "title": "FRC Forge: Sign in to Azure",     "category": "FRC Forge" }
+      { "command": "frcJumpstart.open",             "title": "FRC Jumpstart: Open",                    "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newSwerve",        "title": "FRC Jumpstart: New Swerve Drive",        "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newTank",          "title": "FRC Jumpstart: New Tank Drive",          "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newMecanum",       "title": "FRC Jumpstart: New Mecanum Drive",       "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newShooter",       "title": "FRC Jumpstart: New Flywheel Shooter",    "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newShooterHopper", "title": "FRC Jumpstart: New Shooter + Hopper",    "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newTurret",        "title": "FRC Jumpstart: New Turret",              "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newPuncher",       "title": "FRC Jumpstart: New Puncher / Kicker",    "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newCatapult",      "title": "FRC Jumpstart: New Catapult",            "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newIntake",        "title": "FRC Jumpstart: New Intake (Roller)",     "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newDeployIntake",  "title": "FRC Jumpstart: New Intake with Deploy Arm","category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newConveyor",      "title": "FRC Jumpstart: New Conveyor / Belt",     "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newSerializer",    "title": "FRC Jumpstart: New Serializer",          "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newElevator",      "title": "FRC Jumpstart: New Elevator",            "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newArm",           "title": "FRC Jumpstart: New Pivot Arm",           "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newDoubleArm",     "title": "FRC Jumpstart: New Double-Jointed Arm",  "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newWrist",         "title": "FRC Jumpstart: New Wrist",               "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newTelescope",     "title": "FRC Jumpstart: New Telescope / Extension","category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newMechanism",     "title": "FRC Jumpstart: New Generic Mechanism",   "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newClimb",         "title": "FRC Jumpstart: New Climb",               "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newBuddyClimb",    "title": "FRC Jumpstart: New Buddy Climb",         "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newClaw",          "title": "FRC Jumpstart: New Claw / Gripper",      "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newPneumatics",    "title": "FRC Jumpstart: New Pneumatics",          "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newVision",        "title": "FRC Jumpstart: New Vision",              "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newLeds",          "title": "FRC Jumpstart: New Addressable LEDs",    "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newPathPlanner",   "title": "FRC Jumpstart: New PathPlanner Autos",   "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.newChoreo",        "title": "FRC Jumpstart: New Choreo Autos",        "category": "FRC Jumpstart" },
+      { "command": "frcJumpstart.combine",          "title": "FRC Jumpstart: Combine Templates",       "category": "FRC Jumpstart" }
     ]
   },
   "scripts": {
