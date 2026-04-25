@@ -2,7 +2,7 @@
   "name": "frc-jumpstart",
   "displayName": "FRC Jumpstart",
   "description": "Template-driven generator for WPILib 2026 Java robot code. Swerve, tank, mechanisms, LEDs, vision, PathPlanner — dropped straight into src/main/java/frc/robot/.",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "publisher": "frc-jumpstart",
   "license": "MIT",
   "repository": {
