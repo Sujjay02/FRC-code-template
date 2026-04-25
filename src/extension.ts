@@ -424,7 +424,7 @@ async function cmdOpen() {
 
 // ─── side panel ──────────────────────────────────────────────────────────────
 
-class FrcForgeViewProvider implements vscode.WebviewViewProvider {
+class FrcJumpstartViewProvider implements vscode.WebviewViewProvider {
     static readonly viewId = 'frcJumpstart.panel';
 
     resolveWebviewView(view: vscode.WebviewView) {
@@ -624,7 +624,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand('frcJumpstart.newPathPlanner',   cmdPathPlanner),
         vscode.commands.registerCommand('frcJumpstart.newChoreo',        cmdChoreo),
         vscode.commands.registerCommand('frcJumpstart.combine',          cmdCombine),
-        vscode.window.registerWebviewViewProvider(FrcForgeViewProvider.viewId, new FrcForgeViewProvider()),
+        vscode.window.registerWebviewViewProvider(FrcJumpstartViewProvider.viewId, new FrcJumpstartViewProvider()),
     );
 }
 
